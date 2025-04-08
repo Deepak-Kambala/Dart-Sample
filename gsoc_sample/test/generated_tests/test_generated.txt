@@ -1,0 +1,38 @@
+```json
+{
+  "status": "success",
+  "generated_tests": """
+import 'package:test/test.dart';
+import 'main.dart'; // Assuming the provided code is in main.dart
+
+void main() {
+  group('add function tests', () {
+    test('Positive numbers', () {
+      expect(add(2, 3), equals(5));
+    });
+
+    test('Negative numbers', () {
+      expect(add(-2, -3), equals(-5));
+    });
+
+    test('Zero', () {
+      expect(add(0, 5), equals(5));
+      expect(add(5, 0), equals(5));
+      expect(add(0, 0), equals(0));
+    });
+
+    test('Large numbers', () {
+      expect(add(1000000000, 2000000000), equals(3000000000));
+    });
+
+    test('Overflow', () {
+      // Test for potential integer overflow
+      // Note: Dart integers don't overflow silently, but checking for large values is good practice
+      expect(add(2147483647, 1), equals(2147483648)); // Maximum 32-bit signed integer + 1
+    });
+  });
+}
+
+"""
+}
+```
